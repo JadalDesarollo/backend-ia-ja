@@ -1,0 +1,31 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Caches directories
+.cache/
+.pytest_cache/
+.coverage
+.tox/
+
+# Output directories
+dist/
+build/
+*.egg-info/
+*.egg/
+
+# Environment variables file
+.env
+
+# IDEs and editors
+.idea/
+.vscode/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Python virtual environments
+venv/
+env/
+*.joblib
