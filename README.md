@@ -3,62 +3,83 @@
 
 Este proyecto proporciona una API para predecir el estado de salud de un paciente utilizando un modelo de aprendizaje automático.
 
-## Instalación
+## Configuración del Entorno y Prueba de la API
 
-1. **Clona el Repositorio**:
+### Crear un Entorno Virtual
 
-   ```bash
-   git clone https://github.com/tu_usuario/proyecto-prediccion-salud.git
-   ```
-2. **Accede al Directorio del Proyecto**:
-
-   ```bash
-   cd proyecto-prediccion-salud
-   ```
-3. **Instala las Dependencias**:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-## Ejecución
-
-1. **Crea el Entorno Virtual** (opcional):
-
-   ```bash
-   python -m venv venv
-   ```
-2. **Ejecuta la Aplicación**:
-
-   ```bash
-   python run.py
-   ```
-
-## Prueba del Endpoint de Predicción
-
-Puedes probar el endpoint de predicción utilizando cualquier cliente HTTP como cURL o Postman. Aquí tienes un ejemplo utilizando cURL:
+1. Abre una terminal o línea de comandos.
+2. Navega hasta el directorio de tu proyecto.
+3. Ejecuta el siguiente comando para crear un nuevo entorno virtual llamado `venv`:
 
 ```bash
-curl -X POST \
-  http://127.0.0.1:5000/predict \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "edad_cardiovascular": 30,
-    "Targa": 1,
-    "HepatitisB": 0,
-    "HepatitisC": 0,
-    "VIH": 1,
-    "Sida": 1,
-    "Tuberculosis": 0,
-    "InsRespiratoria": 1,
-    "Alcoholismo": 0,
-    "Anemia": 0,
-    "Desnutricion": 0,
-    "Cancer": 0,
-    "Diarrea": 0,
-    "Diabetes": 0,
-    "Sepsis": 0,
-    "Neumonia": 0,
-    "Covid": 0
-}'
+python3 -m venv venv  # Linux/macOS
+# o
+python -m venv venv  # Windows
 ```
+
+### Activar el Entorno Virtual
+
+4. Activa el entorno virtual con el siguiente comando:
+
+```bash
+source venv/bin/activate  # Linux/macOS
+# o
+venv\Scripts\activate  # Windows
+```
+
+### Instalación de Dependencias
+
+5. Instala las dependencias necesarias ejecutando el siguiente comando:
+
+```bash
+pip install -r requirements.txt
+```
+
+### Ejecutar la API
+
+6. Inicia el servidor Flask para ejecutar la API. Se tiene un archivo `run.py` que contiene la definición de tu aplicación Flask. Ejecuta el siguiente comando para iniciar el servidor:
+
+```bash
+python run.py
+```
+
+### Probar la API
+
+7. Una vez que el servidor esté en funcionamiento, puedes probar la API enviando una solicitud POST con el siguiente JSON a la ruta `/predict`:
+
+```json
+{
+    "edad_cardiovascular": 30,
+    "sex": 1,
+    "usoAnticoagulantes": 1,
+    "usoMedicamentosPresion": 0,
+    "cirugiasPrevias": 0,
+    "actividadesExtenuantes": 1,
+    "antecedentesCardiovasculares": 1,
+    "antecedentesCardiacos": 0,
+    "antecedentesRespiratorios": 1,
+    "antecedentesRenales": 0,
+    "antecedentesDiabeticos": 0,
+    "antecedentesHipertension": 0,
+    "antecedentesObesidad": 0,
+    "antecedentesColesterol": 0,
+    "fumador": 0,
+    "diabetes": 0,
+    "actividadFisica": 0,
+    "alimentacion": 1,
+    "consumoAlcohol": 1,
+    "nivelEstres": 1
+}
+```
+
+8. Recibirás una respuesta JSON con los resultados de la predicción y las recomendaciones.
+
+### Desactivar el Entorno Virtual
+
+9. Cuando hayas terminado de trabajar con la aplicación, puedes desactivar el entorno virtual con el siguiente comando:
+
+```bash
+deactivate
+```
+
+Con esto, has creado un entorno virtual, instalado las dependencias necesarias, ejecutado la API y probado su funcionalidad utilizando la solicitud JSON proporcionada.
