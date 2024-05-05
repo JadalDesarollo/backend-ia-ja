@@ -14,29 +14,28 @@ recomendaciones_collection = db['Recomendaciones']
 def predict():
     data = request.json
     required_params = [
-        'actividadFisica',
-        'actividadesExtenuantes',
-        'alimentacion',
-        'antecedentesCardiacos',
-        'antecedentesCardiovasculares',
+        'sex',
+        'edad_cardiovascular',
         'antecedentesColesterol',
+        'fumador',
+        'diabetes',
+        'actividadFisica',
+        'alimentacion',
+        'consumoAlcohol',
+        'nivelEstres',
+        'usoAnticoagulantes',
+        'usoMedicamentosPresion',
+        'cirugiasPrevias',
+        'actividadesExtenuantes',
+        'antecedentesCardiacos',
+        'antecedentesRespiratorios',
+        'antecedentesRenales',
         'antecedentesDiabeticos',
         'antecedentesHipertension',
         'antecedentesObesidad',
-        'antecedentesRenales',
-        'antecedentesRespiratorios',
-        'cirugiasPrevias',
-        'consumoAlcohol',
-        'diabetes',
-        'edad_cardiovascular',
-        'fumador',
-        'nivelEstres',
-        'sex',
-        'usoAnticoagulantes',
-        'usoMedicamentosPresion',
-        
+        'antecedentesCardiovasculares',      
     ]
-    print(data)
+ 
     for param in required_params:
         if param not in data:
             return jsonify({'error': f'Missing parameter: {param}'}), 400
