@@ -3,7 +3,6 @@ from pymongo import MongoClient
 import random
 from . import predict_bp
 from ..model import modelo
-
 # Conectar a la base de datos MongoDB utilizando la URL de conexión
 client = MongoClient('mongodb+srv://davidpajuelo:SeicN5PUJ5eLTI25@cluster0.qivlt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 db = client['ia']  
@@ -14,26 +13,14 @@ recomendaciones_collection = db['Recomendaciones']
 def predict():
     data = request.json
     required_params = [
-        'sex',
-        'edad_cardiovascular',
-        'antecedentesColesterol',
-        'fumador',
-        'diabetes',
-        'actividadFisica',
-        'alimentacion',
-        'consumoAlcohol',
-        'nivelEstres',
-        'usoAnticoagulantes',
-        'usoMedicamentosPresion',
-        'cirugiasPrevias',
-        'actividadesExtenuantes',
-        'antecedentesCardiacos',
-        'antecedentesRespiratorios',
-        'antecedentesRenales',
-        'antecedentesDiabeticos',
-        'antecedentesHipertension',
-        'antecedentesObesidad',
-        'antecedentesCardiovasculares',      
+        'age',
+        'height',
+        'weight',
+        'pressure_level',
+        'step_level',
+        'rest_level',
+        'smoking_consumption_level',
+        'drink_consumption_level',
     ]
  
     for param in required_params:
@@ -49,7 +36,7 @@ def predict():
     db.collection.insert_one(data)
 
     # Obtener recomendaciones asociadas a las respuestas
-    recomendaciones = {}
+    """ recomendaciones = {}
     for param, value in data.items():
         recomendacion = recomendaciones_collection.find_one({'variable': param, 'nivel': value})
         if recomendacion:
@@ -60,6 +47,6 @@ def predict():
 
     # Limitar la cantidad de recomendaciones a entre 2 y 3
     cantidad_recomendaciones = random.randint(2, 3)
-    recomendaciones_aleatorias = dict(random.sample(recomendaciones_list, cantidad_recomendaciones))
+    recomendaciones_aleatorias = dict(random.sample(recomendaciones_list, cantidad_recomendaciones)) """
 
-    return jsonify({'success': True, 'predict': int(predicciones[0]), 'recomendaciones': recomendaciones_aleatorias})
+    return jsonify({'success': True, 'predict': int(predicciones[0]), 'recomendaciones': ''})

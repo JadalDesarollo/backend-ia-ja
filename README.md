@@ -49,26 +49,15 @@ python run.py
 
 ```json
 {
-    "edad_cardiovascular": 30,
-    "sex": 1,
-    "usoAnticoagulantes": 1,
-    "usoMedicamentosPresion": 0,
-    "cirugiasPrevias": 0,
-    "actividadesExtenuantes": 1,
-    "antecedentesCardiovasculares": 1,
-    "antecedentesCardiacos": 0,
-    "antecedentesRespiratorios": 1,
-    "antecedentesRenales": 0,
-    "antecedentesDiabeticos": 0,
-    "antecedentesHipertension": 0,
-    "antecedentesObesidad": 0,
-    "antecedentesColesterol": 0,
-    "fumador": 0,
-    "diabetes": 0,
-    "actividadFisica": 0,
-    "alimentacion": 1,
-    "consumoAlcohol": 1,
-    "nivelEstres": 1
+    "age": 15,
+    "height": 1.81,
+    "weight": 79.73,
+    "pressure_level": 65,
+    "step_level": 2,
+    "rest_level": 8,
+    "smoking_consumption_level":0,
+    "drink_consumption_level": 0
+
 }
 ```
 
